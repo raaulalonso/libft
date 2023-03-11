@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:13:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/08 23:54:36 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:28:39 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ size_t	ft_strlen(const char *c)
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
-	size_t	j;
 	char	*str;
 	char	*str2;
-	char	buffer[ft_strlen(src)];
+	char	buffer[999];
 
 	i = 0;
-	j = 0;
 	str = (char *)src;
 	str2 = (char *)dst;
 	while (i != len)

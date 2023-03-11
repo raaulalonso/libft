@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 18:35:43 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/11 18:45:01 by raalonso         ###   ########.fr       */
+/*   Created: 2023/03/11 19:02:21 by raalonso          #+#    #+#             */
+/*   Updated: 2023/03/11 20:21:33 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if ((c >= 'a') && (c <= 'z'))
-		return (c - 32);
-	else
-		return (c);
+	int		i;
+	char	*str;
+
+	str = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (c == s[i])
+			str = ((char *)s + i);
+		i++;
+	}
+	if (c == '\0')
+	{
+		str = (char *)s;
+		return (str + i);
+	}
+	return (str);
 }
 
-/*#include <ctype.h>
-#include <stdio.h>
+/*#include <stdio.h>
+#include <string.h>
 int main(void)
 {
-	char c = 64;
-	printf("%d", toupper(c));
-	return 0;
+	char *str = "horla mer llamo raul";
+	char c = 0;
+	printf("%d", strrchr(str, c));
+	return (0);
 }*/

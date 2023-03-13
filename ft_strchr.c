@@ -6,25 +6,25 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:47:12 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/11 18:59:10 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/13 22:44:25 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
-	char	*str;
 
-	str = (char *)s;
 	i = 0;
+	if (c > 255)
+		return ((char *)s);
 	while (s[i] != '\0')
 	{
 		if (c == s[i])
-			return (str + i);
+			return ((char *)s + i);
 		i++;
 	}
 	if (c == '\0')
-		return (str + i);
+		return ((char *)s + i);
 	return (0);
 }
 

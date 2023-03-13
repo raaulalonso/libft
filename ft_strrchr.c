@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:02:21 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/11 20:21:33 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:34:10 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strrchr(const char *s, int c)
 
 	str = 0;
 	i = 0;
+	if (c > 255)
+		return ((char *)s);
 	while (s[i] != '\0')
 	{
 		if (c == s[i])
@@ -36,7 +38,6 @@ char	*ft_strrchr(const char *s, int c)
 int main(void)
 {
 	char *str = "horla mer llamo raul";
-	char c = 0;
-	printf("%d", strrchr(str, c));
+	printf("%s", ft_strrchr(str, 256));
 	return (0);
 }*/

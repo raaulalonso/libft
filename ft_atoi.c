@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:43:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/12 21:40:15 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:59:19 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_number(const char *str, int i)
 
 	j = 0;
 	num = 0;
-	while ((str[i + j] != '\0') && ((str[i + j] <= '9') && (str[i + j] >= '1')))
+	while ((str[i + j] != '\0') && ((str[i + j] <= '9') && (str[i + j] >= '0')))
 	{
 		num = ((num * 10) + (str[i + j] - 48));
 		j++;
@@ -49,11 +49,11 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 int main(void)
 {
 	char *str = "  \n  -1322";
 	printf("%d", ft_atoi(str));
 	return 0;
-}
+}*/

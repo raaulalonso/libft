@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:34:45 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/12 22:05:12 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:20:03 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	int		i;
+	size_t	i;
 	void	*mem;
 
 	i = 0;

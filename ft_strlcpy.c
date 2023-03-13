@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:00:10 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/11 18:27:49 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:40:02 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,25 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		j++;
 	}
 	i = 0;
-	while ((src[i] != '\0') && (i != dstsize))
+	if (dstsize != 0)
 	{
-		dst[i] = src[i];
-		i++;
+		while ((src[i] != '\0') && (i < (dstsize - 1)))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	dst[i] = '\0';
 	return (j);
 }
+
+/*#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	char *str1 = "hola soy raul";
+	char str2[14];
+	printf("%zu", ft_strlcpy(str2, str1, 14));
+	printf("%s", str2);
+	return 0;
+}*/

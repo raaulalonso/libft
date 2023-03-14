@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: raalonso <raalonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:22:16 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/13 22:03:11 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:58:35 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 
 	i = 0;
-	str = (char *)malloc(len * sizeof(char *));
+	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
-		return (0);
+		return (malloc((len - start) * sizeof(char)));
 	while ((s[start] != '\0') && (i < len))
 	{
 		str[i] = s[start];
@@ -34,6 +34,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*#include <stdio.h>
 int main(void)
 {
-	printf("%s", ft_substr("hola me llamo raul", 5, 20));
+	printf("%s", ft_substr("hola soy raul", 5, 2));
 	return 0;
 }*/

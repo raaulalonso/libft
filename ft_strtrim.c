@@ -6,75 +6,63 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 23:35:41 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/14 00:18:02 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/20 01:56:41 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*search(char *str, char c)
 {
 	int		i;
 	int		j;
-	int		k;
-	char	*str;
 	int		s1len;
-	int		setlen;
+	char	*aux;
 
 	i = 0;
 	j = 0;
-	k = 0;
-	s1len = ft_strlen(s1);
-	setlen = ft_strlen(set);
-	str = (char *)malloc(((s1len) + 1) * sizeof(char *));
-	if (!str)
+	aux = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
+	if (!aux)
 		return (0);
-	while ((s1[i] == set[i]) && ((s1[i] != '\0') && (set[i] != '\0')))
-		i++;
-	if (set[i] == '\0')
-	{
-		while (s1[i] != '\0')
-		{
-			str[j] = s1[i];
+	s1len = ft_strlen(str);
+	while ((str[i] == c) && (str[i] != '\0'))
 			i++;
-			j++;
-		}
-		str[j] = '\0';
-		return (str);
-	}
-	while ((s1[s1len] == set[setlen]) && ((setlen != 0) && (s1len != 0)))
+	while ((str[s1len - 1] == c) && (s1len != 0))
+			s1len--;
+	while (i < s1len)
 	{
-		s1len--;
-		setlen--;
-	}
-	if (setlen == 0)
-	{
-		while (k != s1len)
-		{
-			str[k] = s1[k];
-			k++;
-		}
-		str[k] = '\0';
-		return (str);
-	}
-	return ((char *)s1);
-	/*while ((s1[i] != '\0') && (s1[i + j] != '\0'))
-	{
-		while ((s1[i + j] == set[j]) && (set[j] != '\0'))
-		{
-			j++;
-		}
-		if (set[j] != '\0')
-			j = 0;
-		str[i] = s1[i + j];
+		aux[j] = str[i];
 		i++;
-	}*/
+		j++;
+	}
+	aux[j] = '\0';
+	return (aux);
 }
 
-/*#include <stdio.h>
-int main(void)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	printf("%s", ft_strtrim("hola soy raul", "soy "));
-	return 0;
-}*/
+	int		s1len;
+	int		i;
+	char	c;
+	char	*str;
+	char	*trim;
+
+	i = 0;
+	s1len = ft_strlen(s1);
+	str = (char *)s1;
+	while (s1len != 0)
+	{
+		while (set[i] != '\0')
+		{
+			c = set[i];
+			str = search(str, c);
+			i++;
+		}
+		i = 0;
+		s1len--;
+	}
+	trim = ft_strdup(str);
+	free(str);
+	return (trim);
+}

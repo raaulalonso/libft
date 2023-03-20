@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raalonso <raalonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:52:44 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/14 22:13:27 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/20 01:58:17 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	ft_strcpymod(char *str, char *s, int k, int start)
+void	strcpymod(char *str, char *s, int k, int start)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < k)
@@ -26,71 +26,82 @@ void	ft_strcpymod(char *str, char *s, int k, int start)
 	str[i] = '\0';
 }
 
-char	**ft_split(char const *s, char c)
+int	countwords(char *str, char c)
 {
-	int		i;
-	int		wnum;
-	int		w;
-	int		k;
-	int		f;
-	int		j;
-	char	**str;
+	int	i;
+	int	f;
+	int	wnum;
 
 	i = 0;
 	f = 0;
-	k = 0;
-	j = 0;
-	w = 2;
 	wnum = 0;
-	str = (char **)malloc(3 * sizeof(char *));
-	while (w != 0)
+	while (str[i])
 	{
-		while (((s[i] != '\0') || (s[i] == '\0')) && (j < (wnum + 1)))
+		if (str[i] != c)
 		{
-			if ((j == wnum) && (w == 1))
-				break ;
-			if ((s[i] != c) && (s[i] != '\0'))
-			{
-				i++;
-				k++;
-				f = 1;
-			}
-			else if((s[i] == c) || (s[i] == '\0'))
-			{
-				if (f == 1)
-				{
-					if (w == 2)
-						wnum++;
-					else if (w == 1)
-					{
-						str[j] = (char *)malloc((k + 1) * sizeof(char));
-						ft_strcpymod(str[j], (char *)s, k, (i - k));
-						++j;
-					}
-				}
-				k = 0;
-				f = 0;
-				++i;
-				if ((s[i - 1] == '\0') && (w = 2))
-					break ;
-			}
+			if (f == 0)
+				wnum++;
+			f = 1;
 		}
-		w--;
-		i = 0;
+		else
+			f = 0;
+		i++;
 	}
-	
-	return (str);
+	return (wnum);
+}
+
+int	wordmem(int wnum, char *s, char c, char **str)
+{
+	int	i;
+	int	word;
+	int	k;
+
+	i = 0;
+	word = 0;
+	k = 0;
+	while (word < wnum)
+	{
+		while (s[i] == c)
+			i++;
+		k = i;
+		while ((s[i] != c) && (s[i] != '\0'))
+			i++;
+		str[word] = (char *)malloc(((i - k) + 1) * sizeof(char));
+		if (!str[word])
+			return (0);
+		strcpymod(str[word], s, (i - k), k);
+		word++;
+	}
+	str[word] = 0;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		wnum;
+	char	**str;
+
+	wnum = countwords((char *)s, c);
+	str = (char **)malloc((wnum + 1) * sizeof(char *));
+	if (!str)
+		return (0);
+	if (wordmem(wnum, (char *)s, c, str) == 1)
+		return (str);
+	else
+		return (0);
 }
 
 /*#include <stdio.h>
 int main(void)
 {
 	int i;
+	char **str2;
 	
 	i = 0;
-	while (i < 3)
+	str2 = ft_split("ho a", ' ');
+	while (i < 2)
 	{
-		printf("%s", ft_split("hola soy raul ", ' ')[i]);
+		printf("%s", str2[i]);
 		printf("\n");
 		i++;
 	}

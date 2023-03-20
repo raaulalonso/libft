@@ -37,6 +37,7 @@ char	*search(char *str, char c)
 		j++;
 	}
 	aux[j] = '\0';
+	free(str);
 	return (aux);
 }
 

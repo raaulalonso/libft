@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 23:35:41 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/21 00:14:56 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:50:15 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (trim);
 }
 
-// int main(void)
-// {
-// 	printf("%s", ft_strtrim("   xxxtripouille", " x"));
-// 	return 0;
-// }
+/*int main(void)
+{
+	printf("%s", ft_strtrim("hola mundo del youtllllo", "hlo"));
+	return 0;
+}*/

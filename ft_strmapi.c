@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 21:22:16 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/23 20:55:11 by raalonso         ###   ########.fr       */
+/*   Created: 2023/03/23 18:42:09 by raalonso          #+#    #+#             */
+/*   Updated: 2023/03/23 20:51:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	char	*str;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
-	str = (char *)malloc((len + 1) * sizeof(char));
+	str = (char *)malloc(ft_strlen(s) * sizeof(char));
 	if (!str)
-		return (malloc((len - start) * sizeof(char)));
-	if (ft_strlen(s) < start)
 		return (0);
-	while ((s[start] != '\0') && (i < len))
+	ft_strlcpy(str, s, ft_strlen(s));
+	while (str[i] != '\0')
 	{
-		str[i] = s[start];
-		start++;
+		str[i] = f(i, str[i]);
 		i++;
 	}
-	str[i] = '\0';
 	return (str);
 }
 
-/*#include <stdio.h>
-int main(void)
+/*int main(void)
 {
-	printf("%s", ft_substr("FULL BULLSHIT", 400, 20));
-	return 0; 
+	printf("%s", ft_strmapi("hola", prueba));
+	return 0;
 }*/

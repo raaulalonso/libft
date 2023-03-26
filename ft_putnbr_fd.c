@@ -16,16 +16,21 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	num;
 
-	if (n < 0)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	if ((n < 0) && (n != -2147483648))
 	{
-		n *= -1;
-		num = (n + 48);
 		write(fd, "-", 1);
-		write(fd, &num, 1);
+		n *= -1;
 	}
-	else
+	if ((n > 9) && (n != -2147483648))
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else if (n != -2147483648)
 	{
 		num = (n + 48);
-		write(fd, &num, 1);
+		write (fd, &num, 1);
 	}
 }

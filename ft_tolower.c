@@ -10,10 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
 	if ((c >= 'A') && (c <= 'Z'))
 		return (c + 32);
 	else
 		return (c);
 }
+
+/*#include <ctype.h>
+#include <stdio.h>
+int main(void)
+{
+	char c = 64;
+	printf("%d", tolower(c));
+	return 0;
+}*/

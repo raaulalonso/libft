@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
@@ -25,7 +27,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return ((char *)s + i);
-	return (0);
+	return (NULL);
 }
 
 /*#include <stdio.h>

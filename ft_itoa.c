@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 21:07:07 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/21 00:02:06 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:02:09 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long	reverse(long long num, int len)
+static long long	reverse(long long num, int len)
 {
 	long long	rev;
 	int			i;
@@ -29,7 +29,7 @@ long long	reverse(long long num, int len)
 	return (rev);
 }
 
-void	numtostr(char *str, long long num, int nlen, int minus)
+static void	numtostr(char *str, long long num, int nlen, int minus)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ void	numtostr(char *str, long long num, int nlen, int minus)
 	str[i] = '\0';
 }
 
-int	numlen(long long num)
+static int	numlen(long long num)
 {
 	int	nlen;
 

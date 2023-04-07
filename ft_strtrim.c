@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 23:35:41 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/23 19:50:15 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:05:22 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*search(char *str, char c)
+static char	*search(char *str, char c)
 {
 	int		i;
 	int		j;
@@ -38,7 +38,7 @@ char	*search(char *str, char c)
 	return (aux);
 }
 
-char	*loop_through_c(char *set, char *str)
+static char	*loop_through_c(char *set, char *str)
 {
 	int		i;
 	char	c;

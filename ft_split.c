@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:52:44 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/20 01:58:17 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:04:39 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	strcpymod(char *str, char *s, int k, int start)
+static void	strcpymod(char *str, char *s, int k, int start)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ void	strcpymod(char *str, char *s, int k, int start)
 	str[i] = '\0';
 }
 
-int	countwords(char *str, char c)
+static int	countwords(char *str, char c)
 {
 	int	i;
 	int	f;
@@ -50,7 +50,7 @@ int	countwords(char *str, char c)
 	return (wnum);
 }
 
-int	wordmem(int wnum, char *s, char c, char **str)
+static int	wordmem(int wnum, char *s, char c, char **str)
 {
 	int	i;
 	int	word;

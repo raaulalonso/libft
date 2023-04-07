@@ -6,14 +6,14 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 22:03:51 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/13 23:19:53 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:04:59 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_concatenate(char *str, const char *s1, const char *s2)
+static int	ft_concatenate(char *str, const char *s1, const char *s2)
 {
 	int	i;
 	int	j;

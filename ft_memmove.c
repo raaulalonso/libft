@@ -6,44 +6,35 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:13:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/11 18:28:39 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:25:19 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-size_t	ft_strlen(const char *c)
-{
-	int	i;
-
-	i = 0;
-	while (c[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
 	char	*str;
 	char	*str2;
-	char	buffer[999];
 
-	i = 0;
 	str = (char *)src;
 	str2 = (char *)dst;
-	while (i != len)
+	if (src < dst)
 	{
-		buffer[i] = str[i];
-		i++;
+		str2 += (len - 1);
+		str += (len - 1);
+		while (len)
+		{
+			*str2 = *str;
+			len--;
+			str2--;
+			str--;
+		}
 	}
-	i = 0;
-	while (i != len)
+	else
 	{
-		str2[i] = buffer[i];
-		i++;
+		ft_memcpy(str2, str, len);
 	}
 	return (dst);
 }

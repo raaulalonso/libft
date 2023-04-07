@@ -6,11 +6,11 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:43:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/13 19:59:19 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:01:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_number(const char *str, int i)
+static int	ft_number(const char *str, int i)
 {
 	int	j;
 	int	num;

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:47:12 by raalonso          #+#    #+#             */
-/*   Updated: 2023/04/12 19:08:53 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/12 22:23:00 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (c == s[i])
+		if ((char)c == s[i])
 			return ((char *)s + i);
 		i++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 		return ((char *)s + i);
 	return (NULL);
 }
@@ -32,8 +32,6 @@ char	*ft_strchr(const char *s, int c)
 #include <string.h>
 int main(void)
 {
-	char *str = "hola me llamo raul";
-	char c = 'l';
-	printf("%s", strchr(str, c));
+	printf("%s", ft_strchr("hola soy raul", 1234));
 	return (0);
 }*/

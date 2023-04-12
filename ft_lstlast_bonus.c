@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 20:12:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/04/12 22:22:34 by raalonso         ###   ########.fr       */
+/*   Created: 2023/03/28 01:08:59 by raalonso          #+#    #+#             */
+/*   Updated: 2023/03/28 01:18:45 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	i = 0;
-	while (c[i] != '\0')
+	if (lst == 0)
+		return (0);
+	while (lst->next != 0)
 	{
-		i++;
+		lst = lst->next;
 	}
-	return (i);
+	return (lst);
 }

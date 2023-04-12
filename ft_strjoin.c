@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 22:03:51 by raalonso          #+#    #+#             */
-/*   Updated: 2023/04/07 01:04:59 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/04/12 22:19:12 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);
-	str = (char *)malloc(((s1len + s2len) + 1) * sizeof(char *));
+	str = (char *)malloc(((s1len + s2len) + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	i = ft_concatenate(str, s1, s2);
@@ -54,6 +54,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 /*#include <stdio.h>
 int main(void)
 {
-	printf("%s", ft_strjoin("hola soy ", "raul"));
+	printf("%s", ft_strjoin("hola", ""));
 	return 0;
 }*/

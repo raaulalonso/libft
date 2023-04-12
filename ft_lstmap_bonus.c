@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 19:02:21 by raalonso          #+#    #+#             */
-/*   Updated: 2023/04/12 22:23:34 by raalonso         ###   ########.fr       */
+/*   Created: 2023/03/28 17:19:32 by raalonso          #+#    #+#             */
+/*   Updated: 2023/04/12 19:08:25 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int		i;
-	char	*str;
+#include "libft.h"
 
-	str = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if ((char)c == s[i])
-			str = ((char *)s + i);
-		i++;
-	}
-	if ((char)c == '\0')
-	{
-		str = (char *)s;
-		return (str + i);
-	}
-	return (str);
-}
-
-/*#include <stdio.h>
-#include <string.h>
-int main(void)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char *str = "horla mer llamo raul";
-	printf("%s", ft_strrchr(str, 256));
+	t_list	*new;
+	t_list	*head;
+	t_list	*tmp;
+
+	if (lst)
+	{
+		head = ft_lstnew(f(lst->content));
+		if (!head)
+			return (0);
+		tmp = lst->next;
+		while (tmp)
+		{
+			new = ft_lstnew(f(tmp->content));
+			if (!new)
+			{
+				ft_lstclear(&tmp, del);
+				return (0);
+			}
+			ft_lstadd_back(&head, new);
+			tmp = tmp->next;
+		}
+		return (head);
+	}
 	return (0);
-}*/
+}

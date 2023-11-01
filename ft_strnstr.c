@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:59:16 by raalonso          #+#    #+#             */
-/*   Updated: 2023/03/12 20:42:04 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:54:39 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		if (needle[j] == '\0')
 			return ((char *)haystack + i);
 		else
-		i++;
+			i++;
 		j = 0;
 	}
 	return (0);
